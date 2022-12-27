@@ -7,38 +7,44 @@ import 'home/home_screen.dart';
 import 'home/quran/sura_view.dart';
 import 'my_theme.dart';
 import 'providers/my_provider.dart';
-void main(){
-  runApp(ChangeNotifierProvider(
-    create:(context) => MyProvider(),
-    child:MyApplicaton(),
-  ),);
+
+void main() {
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => MyProvider(),
+      child: const MyApplicaton(),
+    ),
+  );
 }
-class MyApplicaton extends StatelessWidget{
+
+class MyApplicaton extends StatelessWidget {
+  const MyApplicaton({super.key});
+
   @override
   Widget build(BuildContext context) {
-    var provider=Provider.of<MyProvider>(context);
-   return  MaterialApp(
-     localizationsDelegates: [
-       AppLocalizations.delegate,
-       GlobalMaterialLocalizations.delegate,
-       GlobalWidgetsLocalizations.delegate,
-       GlobalCupertinoLocalizations.delegate,
-     ],
-     supportedLocales: [
-       Locale('en'),
-       Locale('ar'),
-     ],
-     locale: Locale(provider.language),
-     debugShowCheckedModeBanner: false,
-     initialRoute: HomeScreen.routeName,
-     routes: {
-       HomeScreen.routeName:(c)=>const HomeScreen(),
-       SuraView.routeName:(c)=>SuraView(),
-       HadethDetails.routeName:(context) => HadethDetails()
-     },
-     theme:MyThemeData.lightTheme ,
-     darkTheme: MyThemeData.darkTheme,
-     themeMode: provider.themeMode,
-   );
+    var provider = Provider.of<MyProvider>(context);
+    return MaterialApp(
+      localizationsDelegates: const [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('en'),
+        Locale('ar'),
+      ],
+      locale: Locale(provider.language),
+      debugShowCheckedModeBanner: false,
+      initialRoute: HomeScreen.routeName,
+      routes: {
+        HomeScreen.routeName: (c) => const HomeScreen(),
+        SuraView.routeName: (c) => SuraView(),
+        HadethDetails.routeName: (context) => HadethDetails()
+      },
+      theme: MyThemeData.lightTheme,
+      darkTheme: MyThemeData.darkTheme,
+      themeMode:provider.themeMode,
+    );
   }
 }

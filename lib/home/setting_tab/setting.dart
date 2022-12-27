@@ -15,6 +15,7 @@ class SettingTab extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          SizedBox(height: 50,),
           Text("Language",style:Theme.of(context).textTheme.headline1?.copyWith(
             color: Theme.of(context).colorScheme.onPrimary
           )),

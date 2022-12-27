@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class MyThemeData {
+class MyThemeData extends ChangeNotifier{
   static const Color colorBlack = Color.fromRGBO(36, 36, 36, 1.0);
   static const Color colorGold = Color.fromRGBO(183, 147, 95, 1.0);
   static const Color primaryDarkColor = Color.fromRGBO(15, 20, 36, 1.0);
@@ -9,12 +9,12 @@ class MyThemeData {
     colorScheme: const ColorScheme(
         primary:colorGold ,
         onPrimary:colorBlack  ,
-      error:Colors.redAccent ,
+      error:primaryDarkColor ,
       onError:Colors.white ,
       secondary:Colors.brown ,
       onSecondary: Colors.white ,
       background:Colors.transparent ,
-      onBackground:colorBlack ,
+      onBackground:colorGold ,
       surface: colorGold,
       onSurface:Colors.white ,
       brightness: Brightness.light,),
@@ -37,7 +37,7 @@ class MyThemeData {
   colorScheme: const ColorScheme(
   primary:primaryDarkColor ,
   onPrimary:onPrimaryDarkColor  ,
-  error:Colors.redAccent ,
+  error:Colors.white ,
   onError:Colors.white ,
   secondary:primaryDarkColor ,
   onSecondary: onPrimaryDarkColor ,

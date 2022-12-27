@@ -24,9 +24,10 @@ class LanguageBottomSheet extends StatelessWidget {
                   width: double.infinity,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16),
-                      border: Border.all(color: Theme.of(context).colorScheme.onPrimary),
+                      border: Border.all(
+                          color: Theme.of(context).colorScheme.onPrimary),
                       color: pro.themeMode==ThemeMode.light?
-                      Theme.of(context).colorScheme.onPrimary:
+                      Theme.of(context).colorScheme.onBackground:
                       Theme.of(context).colorScheme.primary
                   ),
                   child: languageItem(context,'english',pro.language=='en'))),
@@ -42,6 +43,9 @@ class LanguageBottomSheet extends StatelessWidget {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16),
                       border: Border.all(color: Theme.of(context).colorScheme.onPrimary),
+                      color: pro.themeMode==ThemeMode.light?
+                      Theme.of(context).colorScheme.onBackground:
+                      Theme.of(context).colorScheme.primary
                   ),
                   child: languageItem(context,'arabic',pro.language=='ar'))),
         ],
@@ -52,12 +56,12 @@ class LanguageBottomSheet extends StatelessWidget {
     children: [
       Text(text,style: Theme.of(context).textTheme.headline1?.copyWith(
           fontSize: 20,
-      color: isSelected?Theme.of(context).colorScheme.surface:
-      Theme.of(context).colorScheme.onSurface
+      color: isSelected?Theme.of(context).colorScheme.onPrimary:
+      Theme.of(context).colorScheme.onError
       )),
       Spacer(),
-      Icon(Icons.done,size: 25,color: isSelected?Theme.of(context).colorScheme.primary:
-      Theme.of(context).colorScheme.onPrimary ,)
+      Icon(Icons.done,size: 25,color: isSelected?Theme.of(context).colorScheme.onPrimary:
+      Theme.of(context).colorScheme.onError ,)
     ],
   );
 }
